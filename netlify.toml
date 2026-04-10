@@ -5,4 +5,9 @@
 [[redirects]]
   from = "/*"
   to = "/index.html"
+<<<<<<< HEAD
   status = 200
+=======
+  status = 200' > netlify.toml
+
+>>>>>>> 0773c56 (fix: netlify config)
