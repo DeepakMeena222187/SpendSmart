@@ -4,7 +4,7 @@
 //  Charts: Donut · Daily Area · Monthly Bar
 //  Hindi roasts per category · Budget titles · PWA install · Responsive
 // ─────────────────────────────────────────────────────────────────────────────
-import { useState, useEffect, useMemo, useCallback } from "react";
+import { useState, useEffect, useMemo } from "react";
 import {
   collection, addDoc, deleteDoc, doc,
   onSnapshot, query, where, orderBy, serverTimestamp,
@@ -14,7 +14,6 @@ import { auth, db } from "../firebase";
 import { useAuth } from "../context/AuthContext";
 import ExpenseForm  from "../components/ExpenseForm";
 import ExpenseList  from "../components/ExpenseList";
-import SummaryCards from "../components/SummaryCards";
 import {
   AreaChart, Area, BarChart, Bar, PieChart, Pie, Cell,
   XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, Legend,
