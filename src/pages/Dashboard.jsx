@@ -198,7 +198,7 @@ function StatCard({ label, value, sub, icon, t, delay=0 }) {
   return (
     <div className="fade-up" style={{
       background:t.surface, border:`1px solid ${t.border}`,
-      borderRadius:16, padding:"1.1rem 1.25rem",
+      borderRadius:18, padding:"1.25rem 1.4rem",
       boxShadow:t.cardShadow,
       animationDelay:`${delay}ms`,
       transition:"transform 0.2s, box-shadow 0.2s",
@@ -214,18 +214,26 @@ function StatCard({ label, value, sub, icon, t, delay=0 }) {
     }}
     >
       <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-start" }}>
-        <div>
-          <p style={{ fontSize:"0.72rem", color:t.textMuted, fontWeight:600,
-            textTransform:"uppercase", letterSpacing:1, marginBottom:6 }}>
+        <div style={{ flex:1, minWidth:0 }}>
+          <p style={{ fontSize:"0.7rem", color:t.textMuted, fontWeight:700,
+            textTransform:"uppercase", letterSpacing:1.5, marginBottom:8,
+            fontFamily:"'Plus Jakarta Sans',sans-serif" }}>
             {label}
           </p>
-          <p style={{ fontSize:"1.5rem", fontWeight:800, color:t.text,
-            fontFamily:"'Syne',sans-serif", lineHeight:1 }}>
+          <p style={{ fontSize:"1.65rem", fontWeight:800, color:t.text,
+            fontFamily:"'Plus Jakarta Sans',sans-serif", lineHeight:1.1,
+            letterSpacing:"-0.5px",
+            overflow:"hidden", textOverflow:"ellipsis", whiteSpace:"nowrap" }}>
             {value}
           </p>
-          {sub && <p style={{ fontSize:"0.75rem", color:t.accent, marginTop:4, fontWeight:600 }}>{sub}</p>}
+          {sub && (
+            <p style={{ fontSize:"0.78rem", color:t.accent, marginTop:6,
+              fontWeight:600, fontFamily:"'Plus Jakarta Sans',sans-serif" }}>
+              {sub}
+            </p>
+          )}
         </div>
-        <span style={{ fontSize:"1.6rem", opacity:0.8 }}>{icon}</span>
+        <span style={{ fontSize:"1.5rem", opacity:0.75, marginLeft:8, flexShrink:0 }}>{icon}</span>
       </div>
     </div>
   );
@@ -412,14 +420,14 @@ export default function Dashboard() {
     <h2 style={{
       fontSize:"0.85rem", fontWeight:700, color:t.textMuted,
       textTransform:"uppercase", letterSpacing:1.5,
-      marginBottom:"1rem", fontFamily:"'Space Grotesk',sans-serif",
+      marginBottom:"1rem", fontFamily:"'Plus Jakarta Sans',sans-serif",
     }}>{txt}</h2>
   );
 
   return (
     <div style={{
       minHeight:"100vh", background:t.bg, color:t.text,
-      fontFamily:"'Space Grotesk',sans-serif",
+      fontFamily:"'Plus Jakarta Sans',sans-serif",
       transition:"background 0.5s ease, color 0.5s ease",
     }}>
 
@@ -541,7 +549,7 @@ export default function Dashboard() {
                 borderRadius:10, padding:"8px 14px",
                 fontSize:"0.95rem", fontWeight:700,
                 color:t.accent, outline:"none",
-                fontFamily:"'Space Grotesk',sans-serif",
+                fontFamily:"'Plus Jakarta Sans',sans-serif",
               }}
             />
           </div>
@@ -563,19 +571,19 @@ export default function Dashboard() {
                       background:t.surface2, border:`1px solid ${t.accent}`,
                       borderRadius:8, padding:"5px 10px",
                       color:t.text, outline:"none", width:130,
-                      fontFamily:"'Space Grotesk',sans-serif", fontWeight:700,
+                      fontFamily:"'Plus Jakarta Sans',sans-serif", fontWeight:700,
                     }}
                   />
                   <button onClick={saveLimit} style={{
                     background:t.accent, color:"#000", border:"none",
                     borderRadius:8, padding:"5px 16px",
                     fontWeight:800, cursor:"pointer",
-                    fontFamily:"'Space Grotesk',sans-serif",
+                    fontFamily:"'Plus Jakarta Sans',sans-serif",
                   }}>Save</button>
                   <button onClick={()=>setEditingLimit(false)} style={{
                     background:t.surface2, border:`1px solid ${t.border}`,
                     color:t.textMuted, borderRadius:8, padding:"5px 12px",
-                    cursor:"pointer", fontFamily:"'Space Grotesk',sans-serif",
+                    cursor:"pointer", fontFamily:"'Plus Jakarta Sans',sans-serif",
                   }}>✕</button>
                 </div>
               ) : (
@@ -587,7 +595,7 @@ export default function Dashboard() {
                     background:t.surface2, border:`1px solid ${t.border}`,
                     color:t.textMuted, borderRadius:8, padding:"4px 12px",
                     fontSize:"0.78rem", fontWeight:700, cursor:"pointer",
-                    fontFamily:"'Space Grotesk',sans-serif",
+                    fontFamily:"'Plus Jakarta Sans',sans-serif",
                   }}>
                     {limit>0 ? "✏️ Edit" : "➕ Set"}
                   </button>
@@ -713,7 +721,7 @@ export default function Dashboard() {
                   </Pie>
                   <Tooltip formatter={v=>`₹${v.toLocaleString()}`}
                     contentStyle={{ background:t.surface2, border:`1px solid ${t.border}`,
-                      borderRadius:10, color:t.text, fontFamily:"'Space Grotesk',sans-serif" }}/>
+                      borderRadius:10, color:t.text, fontFamily:"'Plus Jakarta Sans',sans-serif" }}/>
                   <Legend
                     iconType="circle" iconSize={8}
                     formatter={v=><span style={{color:t.text,fontSize:"0.75rem"}}>{v}</span>}
@@ -756,7 +764,7 @@ export default function Dashboard() {
         }}>
           <div style={card()}>
             <h2 style={{ fontSize:"1rem", fontWeight:800, color:t.text,
-              marginBottom:"1.1rem", fontFamily:"'Syne',sans-serif" }}>
+              marginBottom:"1.1rem", fontFamily:"'Figtree',sans-serif" }}>
               ➕ Add Expense
             </h2>
             <ExpenseForm onAdd={addExpense}/>
@@ -764,7 +772,7 @@ export default function Dashboard() {
 
           <div style={card()}>
             <h2 style={{ fontSize:"1rem", fontWeight:800, color:t.text,
-              marginBottom:"1.1rem", fontFamily:"'Syne',sans-serif",
+              marginBottom:"1.1rem", fontFamily:"'Figtree',sans-serif",
               display:"flex", alignItems:"center", gap:10 }}>
               🧾 Transactions —{" "}
               {new Date(filterMonth+"-02").toLocaleString("default",{month:"long",year:"numeric"})}
